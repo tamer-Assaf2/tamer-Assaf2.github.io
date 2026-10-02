@@ -18,6 +18,8 @@ Current technical insights:
 
 - `insights/index.html`: crawlable technical-writing hub
 - `insights/arcgis-attribute-rules-arcade.html`: practical ArcGIS Attribute Rules article
+- `insights/postgis-web-gis-spatial-applications.html`: PostGIS and Web GIS database design article
+- `insights/road-routing-dijkstra-ckdtree.html`: Dijkstra and cKDTree road-routing article
 
 ## Project structure
 

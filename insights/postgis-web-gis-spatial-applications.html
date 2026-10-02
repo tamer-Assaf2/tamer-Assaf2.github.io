@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A practical guide to designing PostgreSQL/PostGIS databases for Web GIS and real-world spatial applications, including geometry modeling, SRIDs, spatial indexes, proximity queries, APIs, and multi-tenant design."
+    />
+    <meta name="author" content="Tamer Ali Assaf" />
+    <meta name="theme-color" content="#f4f7f8" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="PostGIS for Web GIS &amp; Spatial Applications | Tamer Ali Assaf"
+    />
+    <meta
+      property="og:description"
+      content="Practical database patterns for reliable Web GIS and operational spatial applications."
+    />
+    <meta
+      property="og:image"
+      content="https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://tamer-assaf2.github.io/insights/postgis-web-gis-spatial-applications.html"
+    />
+    <meta property="og:site_name" content="Tamer Ali Assaf" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:published_time" content="2026-10-02" />
+    <meta property="article:modified_time" content="2026-10-02" />
+    <meta property="article:author" content="Tamer Ali Assaf" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="PostGIS for Web GIS &amp; Spatial Applications | Tamer Ali Assaf"
+    />
+    <meta
+      name="twitter:description"
+      content="Spatial modeling, indexing, queries, APIs, and multi-tenant patterns for production PostGIS systems."
+    />
+    <meta
+      name="twitter:image"
+      content="https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg"
+    />
+    <link
+      rel="canonical"
+      href="https://tamer-assaf2.github.io/insights/postgis-web-gis-spatial-applications.html"
+    />
+    <title>
+      PostGIS for Web GIS &amp; Spatial Applications | Tamer Ali Assaf
+    </title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../assets/insights.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TechArticle",
+            "headline": "PostGIS for Web GIS: Designing Spatial Databases for Real-World Applications",
+            "description": "A practical guide to designing PostgreSQL and PostGIS databases for Web GIS and operational spatial applications.",
+            "image": "https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg",
+            "datePublished": "2026-10-02",
+            "dateModified": "2026-10-02",
+            "inLanguage": "en",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://tamer-assaf2.github.io/insights/postgis-web-gis-spatial-applications.html"
+            },
+            "author": {
+              "@type": "Person",
+              "@id": "https://tamer-assaf2.github.io/#person",
+              "name": "Tamer Ali Assaf",
+              "url": "https://tamer-assaf2.github.io/"
+            },
+            "publisher": {
+              "@type": "Person",
+              "@id": "https://tamer-assaf2.github.io/#person",
+              "name": "Tamer Ali Assaf"
+            },
+            "keywords": [
+              "PostGIS",
+              "PostgreSQL",
+              "Web GIS",
+              "spatial database",
+              "GIS API",
+              "spatial indexing",
+              "real-time GIS"
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://tamer-assaf2.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://tamer-assaf2.github.io/insights/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "PostGIS for Web GIS",
+                "item": "https://tamer-assaf2.github.io/insights/postgis-web-gis-spatial-applications.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="nav-wrap">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a
+          class="brand"
+          href="../index.html"
+          aria-label="Tamer Ali Assaf, portfolio home"
+          >Tamer Ali Assaf<span>.</span></a
+        >
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch color theme"
+          >
+            Theme
+          </button>
+          <button
+            class="menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            Menu
+          </button>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#about">About</a>
+          <a href="../projects/">Work</a>
+          <a href="./" aria-current="page">Insights</a>
+          <a href="../index.html#experience">Experience</a>
+          <a href="../index.html#tools">Toolkit</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="insights-main">
+      <article class="article-layout">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="./">Insights</a> / PostGIS
+          for Web GIS
+        </nav>
+
+        <header class="article-header reveal">
+          <p class="section-kicker">POSTGIS / WEB GIS / SPATIAL DATABASES</p>
+          <h1>
+            PostGIS for Web GIS: Designing Spatial Databases for Real-World
+            Applications
+          </h1>
+          <p class="lead">
+            A spatial database is more than a place to store coordinates. Its
+            geometry model, coordinate systems, indexes, access rules, and API
+            boundaries determine how reliably a Web GIS application behaves.
+          </p>
+          <div class="article-meta">
+            <span>By Tamer Ali Assaf</span>
+            <time datetime="2026-10-02">October 2, 2026</time>
+            <span>Technical article</span>
+          </div>
+        </header>
+
+        <figure class="article-cover reveal">
+          <img
+            src="../assets/images/tamer-assaf-geospatial-systems.jpg"
+            alt="Aerial terrain with geospatial network and routing overlays"
+            width="1586"
+            height="992"
+            fetchpriority="high"
+          />
+        </figure>
+
+        <div class="article-note">
+          <strong>Public-safe scope:</strong> The architecture and SQL patterns
+          below are generalized. They do not expose private schemas,
+          credentials, client data, production infrastructure, or sensitive
+          operational procedures.
+        </div>
+
+        <nav class="article-toc" aria-label="Article contents">
+          <strong>Contents</strong>
+          <ol>
+            <li><a href="#role">The role of PostGIS</a></li>
+            <li><a href="#modeling">Model spatial data deliberately</a></li>
+            <li><a href="#indexes">Spatial indexes and query design</a></li>
+            <li><a href="#queries">Queries that belong in the database</a></li>
+            <li>
+              <a href="#application">Connect PostGIS to the application</a>
+            </li>
+            <li><a href="#production">Production considerations</a></li>
+          </ol>
+        </nav>
+
+        <div class="article-body">
+          <h2 id="role">The role of PostGIS in Web GIS</h2>
+          <p>
+            A Web GIS stack often includes a browser map, an API, background
+            services, and a database. PostGIS gives PostgreSQL native spatial
+            types and functions, allowing geometry-aware filtering, measurement,
+            containment, intersection, and proximity operations to run close to
+            the data.
+          </p>
+          <p>
+            This matters because application code should not need to download an
+            entire dataset just to answer a spatial question. A well-designed
+            query can return only the records or geometry required for the
+            current map, operation, or user.
+          </p>
+
+          <h2 id="modeling">Model spatial data deliberately</h2>
+          <h3>Use real spatial columns</h3>
+          <p>
+            Longitude and latitude fields can be useful for exchange, but they
+            are not a substitute for a constrained spatial column. A geometry
+            column records the spatial type and reference system directly and
+            enables spatial validation, indexes, and database functions.
+          </p>
+          <pre><code>CREATE TABLE stops (
+    id          bigserial PRIMARY KEY,
+    name        text NOT NULL,
+    geom        geometry(Point, 4326) NOT NULL
+);
+
+CREATE INDEX stops_geom_gix
+ON stops USING GIST (geom);</code></pre>
+
+          <h3>Treat the SRID as part of the data model</h3>
+          <p>
+            The spatial reference identifier affects every distance,
+            transformation, and overlay operation. Store a deliberate SRID,
+            validate incoming data, and transform at explicit boundaries. Do not
+            silently mix coordinate systems inside the same workflow.
+          </p>
+
+          <h3>Choose geometry or geography intentionally</h3>
+          <p>
+            The <code>geometry</code> type is usually a strong fit for projected
+            local operations and general GIS interoperability. The
+            <code>geography</code> type can simplify distance calculations over
+            the earth but has different performance and function tradeoffs. The
+            correct choice follows the spatial extent and query patterns, not a
+            universal rule.
+          </p>
+
+          <h2 id="indexes">Spatial indexes and query design</h2>
+          <p>
+            GiST indexes are a core part of performant PostGIS systems, but an
+            index does not make every spatial expression efficient. Queries
+            should use index-aware predicates, filter early, request only the
+            needed fields, and be reviewed with PostgreSQL query plans.
+          </p>
+          <pre><code>CREATE INDEX vehicles_geom_gix
+ON vehicles USING GIST (geom);
+
+SELECT id, vehicle_code
+FROM vehicles
+WHERE ST_DWithin(
+    geom,
+    ST_SetSRID(ST_Point(:lng, :lat), 4326),
+    :distance
+);</code></pre>
+          <p>
+            In a geographic coordinate system, the distance unit and intended
+            accuracy need explicit attention. Depending on the use case, the
+            query may require geography casting or a suitable projected
+            coordinate system.
+          </p>
+
+          <h2 id="queries">Queries that belong in the database</h2>
+          <p>
+            Spatial containment, proximity, intersection, aggregation, and
+            bounding-box filters are usually better expressed in PostGIS than
+            recreated across multiple clients. The database becomes the shared
+            implementation for the API, dashboards, scheduled jobs, and other
+            consumers.
+          </p>
+          <pre><code>SELECT z.id, z.name
+FROM zones z
+WHERE ST_Contains(
+    z.geom,
+    ST_SetSRID(ST_Point(:lng, :lat), 4326)
+);</code></pre>
+          <p>
+            Keep the query contract clear. Define whether points on a boundary
+            count as inside, how invalid geometry is handled, and which result
+            wins when zones overlap. These choices are business rules as much as
+            technical details.
+          </p>
+
+          <h2 id="application">Connect PostGIS to the application layer</h2>
+          <ol class="process-flow" aria-label="Web GIS data flow">
+            <li><span>01</span><strong>Receive validated request</strong></li>
+            <li><span>02</span><strong>Apply access scope</strong></li>
+            <li><span>03</span><strong>Run parameterized SQL</strong></li>
+            <li><span>04</span><strong>Shape spatial response</strong></li>
+            <li><span>05</span><strong>Render or process result</strong></li>
+          </ol>
+          <p>
+            APIs should use parameterized queries, bounded result sets, clear
+            geometry formats, and application-level validation. GeoJSON is
+            useful for browser maps, while vector tiles or simplified geometry
+            may be more appropriate for large datasets and smaller payloads.
+          </p>
+          <p>
+            The database should enforce durable constraints. The API should
+            enforce request rules and authorization. The client should focus on
+            interaction and presentation. Keeping those responsibilities clear
+            makes the system easier to test and evolve.
+          </p>
+
+          <h2 id="production">
+            Real-time, multi-tenant, and production systems
+          </h2>
+          <div class="article-checks">
+            <section>
+              <h3>Bound real-time writes</h3>
+              <p>
+                Separate current state from history when needed, batch frequent
+                updates, and define retention and aggregation strategies.
+              </p>
+            </section>
+            <section>
+              <h3>Enforce tenant scope</h3>
+              <p>
+                Include tenant ownership in keys and indexes, then reinforce it
+                through APIs and PostgreSQL row-level security where suitable.
+              </p>
+            </section>
+            <section>
+              <h3>Validate geometry</h3>
+              <p>
+                Constrain geometry types and SRIDs, check validity, and decide
+                how rejected or repaired geometry is recorded.
+              </p>
+            </section>
+            <section>
+              <h3>Observe query behavior</h3>
+              <p>
+                Monitor slow queries, inspect plans, maintain statistics, and
+                test with realistic spatial distributions and volumes.
+              </p>
+            </section>
+          </div>
+
+          <h3>Production checklist</h3>
+          <ul>
+            <li>Use constraints for required geometry types and SRIDs.</li>
+            <li>Create indexes that match real spatial and tenant filters.</li>
+            <li>Parameterize SQL and keep credentials outside source code.</li>
+            <li>Limit geometry detail and result volume at API boundaries.</li>
+            <li>Plan backups, migrations, monitoring, and retention.</li>
+            <li>
+              Test boundary cases, invalid geometry, and mixed projections.
+            </li>
+          </ul>
+
+          <h3>Official references</h3>
+          <p>
+            Continue with the official
+            <a href="https://postgis.net/docs/">PostGIS documentation</a>, the
+            PostGIS guides to
+            <a href="https://postgis.net/documentation/faq/spatial-indexes/"
+              >spatial indexes</a
+            >
+            and
+            <a
+              href="https://postgis.net/documentation/faq/geometry-or-geography/"
+              >geometry versus geography</a
+            >, plus the PostgreSQL documentation for
+            <a href="https://www.postgresql.org/docs/current/indexes.html"
+              >indexes</a
+            >
+            and
+            <a href="https://www.postgresql.org/docs/17/ddl-rowsecurity.html"
+              >row security policies</a
+            >.
+          </p>
+
+          <section class="article-related" aria-labelledby="related-title">
+            <p class="section-kicker">RELATED WORK</p>
+            <h2 id="related-title">Continue through the spatial stack.</h2>
+            <div class="article-related-links">
+              <a href="road-routing-dijkstra-ckdtree.html"
+                ><strong>Road routing with Dijkstra and cKDTree</strong
+                ><span
+                  >Graph construction, snapping, and route recovery</span
+                ></a
+              >
+              <a href="../projects/rawabi-bus-tracking.html"
+                ><strong>Rawabi Bus Tracking System</strong
+                ><span>Real-time GIS, PostGIS, and operational APIs</span></a
+              >
+              <a href="arcgis-attribute-rules-arcade.html"
+                ><strong>ArcGIS Attribute Rules with Arcade</strong
+                ><span
+                  >Geodatabase validation and controlled automation</span
+                ></a
+              >
+              <a href="../projects/"
+                ><strong>Selected projects</strong
+                ><span>Browse all public-safe system case studies</span></a
+              >
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Tamer Ali Assaf</span
+        ><span><a href="./">All insights</a> / PostGIS for Web GIS</span>
+      </div>
+    </footer>
+    <script src="../assets/script.js"></script>
+  </body>
+</html>

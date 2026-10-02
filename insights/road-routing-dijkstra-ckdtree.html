@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A practical GIS engineering guide to building a road routing engine from real road geometry using graph construction, Dijkstra shortest path, cKDTree nearest-node search, snapping, and route reconstruction."
+    />
+    <meta name="author" content="Tamer Ali Assaf" />
+    <meta name="theme-color" content="#f4f7f8" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Road Routing with Dijkstra &amp; cKDTree | Tamer Ali Assaf"
+    />
+    <meta
+      property="og:description"
+      content="Build a practical road routing pipeline with graph construction, nearest-node search, Dijkstra, and route reconstruction."
+    />
+    <meta
+      property="og:image"
+      content="https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://tamer-assaf2.github.io/insights/road-routing-dijkstra-ckdtree.html"
+    />
+    <meta property="og:site_name" content="Tamer Ali Assaf" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:published_time" content="2026-10-02" />
+    <meta property="article:modified_time" content="2026-10-02" />
+    <meta property="article:author" content="Tamer Ali Assaf" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Road Routing with Dijkstra &amp; cKDTree | Tamer Ali Assaf"
+    />
+    <meta
+      name="twitter:description"
+      content="A practical GIS routing pipeline from road geometry to a reconstructed route."
+    />
+    <meta
+      name="twitter:image"
+      content="https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg"
+    />
+    <link
+      rel="canonical"
+      href="https://tamer-assaf2.github.io/insights/road-routing-dijkstra-ckdtree.html"
+    />
+    <title>Road Routing with Dijkstra &amp; cKDTree | Tamer Ali Assaf</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../assets/insights.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TechArticle",
+            "headline": "Building a Road Routing Engine with Dijkstra and cKDTree",
+            "description": "A practical GIS engineering guide to graph construction, nearest-node search, Dijkstra shortest paths, snapping, and route reconstruction.",
+            "image": "https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg",
+            "datePublished": "2026-10-02",
+            "dateModified": "2026-10-02",
+            "inLanguage": "en",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://tamer-assaf2.github.io/insights/road-routing-dijkstra-ckdtree.html"
+            },
+            "author": {
+              "@type": "Person",
+              "@id": "https://tamer-assaf2.github.io/#person",
+              "name": "Tamer Ali Assaf",
+              "url": "https://tamer-assaf2.github.io/"
+            },
+            "publisher": {
+              "@type": "Person",
+              "@id": "https://tamer-assaf2.github.io/#person",
+              "name": "Tamer Ali Assaf"
+            },
+            "keywords": [
+              "GIS routing",
+              "Dijkstra",
+              "cKDTree",
+              "spatial algorithms",
+              "road network",
+              "ArcPy",
+              "OpenStreetMap"
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://tamer-assaf2.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://tamer-assaf2.github.io/insights/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Road Routing with Dijkstra and cKDTree",
+                "item": "https://tamer-assaf2.github.io/insights/road-routing-dijkstra-ckdtree.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="nav-wrap">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a
+          class="brand"
+          href="../index.html"
+          aria-label="Tamer Ali Assaf, portfolio home"
+          >Tamer Ali Assaf<span>.</span></a
+        >
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch color theme"
+          >
+            Theme
+          </button>
+          <button
+            class="menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            Menu
+          </button>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#about">About</a>
+          <a href="../projects/">Work</a>
+          <a href="./" aria-current="page">Insights</a>
+          <a href="../index.html#experience">Experience</a>
+          <a href="../index.html#tools">Toolkit</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="insights-main">
+      <article class="article-layout">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="./">Insights</a> / Road
+          routing
+        </nav>
+
+        <header class="article-header reveal">
+          <p class="section-kicker">ROUTING / DIJKSTRA / SPATIAL ALGORITHMS</p>
+          <h1>Building a Road Routing Engine with Dijkstra and cKDTree</h1>
+          <p class="lead">
+            A reliable route is the result of a complete spatial pipeline: clean
+            road geometry, a weighted graph, fast endpoint snapping, a
+            shortest-path algorithm, and accurate route reconstruction.
+          </p>
+          <div class="article-meta">
+            <span>By Tamer Ali Assaf</span>
+            <time datetime="2026-10-02">October 2, 2026</time>
+            <span>Technical article</span>
+          </div>
+        </header>
+
+        <figure class="article-cover reveal">
+          <img
+            src="../assets/images/tamer-assaf-geospatial-systems.jpg"
+            alt="Aerial terrain with geospatial network and routing overlays"
+            width="1586"
+            height="992"
+            fetchpriority="high"
+          />
+        </figure>
+
+        <div class="article-note">
+          <strong>Public-safe scope:</strong> The examples describe generalized
+          routing architecture. They exclude private road data, production
+          services, credentials, client procedures, and deployment details.
+        </div>
+
+        <nav class="article-toc" aria-label="Article contents">
+          <strong>Contents</strong>
+          <ol>
+            <li><a href="#pipeline">Routing is a pipeline</a></li>
+            <li><a href="#geometry">Prepare road geometry</a></li>
+            <li><a href="#graph">Build the weighted graph</a></li>
+            <li><a href="#snapping">Find the nearest node</a></li>
+            <li><a href="#dijkstra">Run Dijkstra</a></li>
+            <li><a href="#production">Production considerations</a></li>
+          </ol>
+        </nav>
+
+        <div class="article-body">
+          <h2 id="pipeline">The routing problem is a pipeline</h2>
+          <p>
+            Dijkstra is only one stage of a route engine. Real users provide
+            coordinates, while the algorithm expects valid graph nodes. Real
+            road layers contain multipart lines, crossings, direction rules,
+            duplicated geometry, and disconnected segments. The final result
+            must return GIS geometry rather than a list of abstract node IDs.
+          </p>
+          <ol class="process-flow" aria-label="Road routing pipeline">
+            <li><span>01</span><strong>Prepare road geometry</strong></li>
+            <li><span>02</span><strong>Construct graph nodes</strong></li>
+            <li><span>03</span><strong>Snap input locations</strong></li>
+            <li><span>04</span><strong>Find shortest path</strong></li>
+            <li><span>05</span><strong>Rebuild route geometry</strong></li>
+          </ol>
+          <p>
+            Treating these stages as separate components makes correctness and
+            performance easier to test. It also prevents algorithm success from
+            hiding a broken network model.
+          </p>
+
+          <h2 id="geometry">Prepare road geometry before the graph</h2>
+          <p>
+            Routing connectivity depends on topology. Roads that visually cross
+            do not necessarily share a graph node, while two endpoints that
+            should connect may differ by a small coordinate tolerance. Before
+            graph construction, define how the source handles intersections,
+            multipart features, duplicate segments, bridges, tunnels, and
+            one-way restrictions.
+          </p>
+          <p>
+            Work in a coordinate reference system appropriate for the cost
+            model. If edge cost is distance, a projected system with meaningful
+            linear units is often easier to reason about than raw longitude and
+            latitude. Preserve stable identifiers so every graph edge can be
+            traced back to its road feature and geometry.
+          </p>
+
+          <h2 id="graph">Convert road segments into a weighted graph</h2>
+          <p>
+            Each valid road endpoint or intersection becomes a node. Each
+            traversable segment becomes an edge. The edge stores a cost and a
+            reference to the original segment used later for route recovery.
+          </p>
+          <pre><code>graph[node_a].append((node_b, cost, segment_id))
+graph[node_b].append((node_a, cost, segment_id))  # if bidirectional</code></pre>
+          <p>
+            Distance is the simplest cost, but operational routing may use
+            expected travel time, road class, access permissions, turn
+            restrictions, vehicle limits, or a composite weight. Directionality
+            must be encoded while building the graph. Adding both directions to
+            every segment creates invalid routes on one-way roads.
+          </p>
+
+          <h2 id="snapping">Use cKDTree for nearest-node search</h2>
+          <p>
+            User coordinates rarely match graph nodes exactly. A spatial index
+            can map each start and destination coordinate to a candidate node.
+            SciPy's <code>cKDTree</code> supports efficient nearest-neighbor
+            queries over node coordinates.
+          </p>
+          <pre><code>from scipy.spatial import cKDTree
+
+node_xy = [(x, y) for x, y in nodes]
+tree = cKDTree(node_xy)
+
+distance, index = tree.query((input_x, input_y))
+nearest_node = nodes[index]</code></pre>
+          <p>
+            Nearest does not automatically mean valid. Apply a maximum snapping
+            distance, confirm that the node belongs to a routable component, and
+            return a clear error when an input falls outside the supported
+            network. For high accuracy, snapping to the nearest edge and then
+            inserting a temporary node may be better than endpoint-only
+            snapping.
+          </p>
+
+          <h2 id="dijkstra">Run Dijkstra and reconstruct the route</h2>
+          <p>
+            Dijkstra's algorithm finds the least-cost path in a graph with
+            non-negative edge weights. A priority queue selects the next node
+            with the lowest known accumulated cost, while a predecessor map
+            records how that node was reached.
+          </p>
+          <pre><code>import heapq
+
+queue = [(0, start)]
+distance = {start: 0}
+previous = {}
+
+while queue:
+    current_cost, node = heapq.heappop(queue)
+
+    if node == target:
+        break
+
+    if current_cost != distance.get(node):
+        continue
+
+    for neighbor, edge_cost, segment_id in graph[node]:
+        new_cost = current_cost + edge_cost
+        if new_cost &lt; distance.get(neighbor, float("inf")):
+            distance[neighbor] = new_cost
+            previous[neighbor] = (node, segment_id)
+            heapq.heappush(queue, (new_cost, neighbor))</code></pre>
+          <p>
+            If the target was reached, walk backward through
+            <code>previous</code> to recover the ordered segment IDs, then
+            reverse the sequence. Retrieve the source line geometry, orient
+            segments consistently, and merge or return them as a route feature.
+            Preserve the total cost and snapping distances as result metadata so
+            the route can be validated.
+          </p>
+
+          <h2 id="production">Production considerations</h2>
+          <div class="article-checks">
+            <section>
+              <h3>Direction and cost</h3>
+              <p>
+                Model one-way travel, restrictions, units, and the real meaning
+                of the cost function before optimizing the algorithm.
+              </p>
+            </section>
+            <section>
+              <h3>Disconnected networks</h3>
+              <p>
+                Detect components, handle unreachable destinations, and avoid
+                presenting a partial traversal as a valid route.
+              </p>
+            </section>
+            <section>
+              <h3>Reusable indexes</h3>
+              <p>
+                Build the graph and KD-tree once per network version rather than
+                rebuilding them for every request.
+              </p>
+            </section>
+            <section>
+              <h3>Route validation</h3>
+              <p>
+                Check endpoint distance, segment continuity, geometry length,
+                accumulated cost, and known test routes.
+              </p>
+            </section>
+          </div>
+
+          <h3>Why this architecture matters</h3>
+          <p>
+            A routing engine connects several engineering concerns: GIS data
+            quality, coordinate systems, spatial indexing, graph theory,
+            performance, and API behavior. A clean pipeline allows each concern
+            to evolve independently. For example, a later version can replace
+            endpoint snapping with edge snapping, introduce A*, or move network
+            preparation into a spatial database without rewriting every layer.
+          </p>
+          <p>
+            For systems that already use a spatial database, the companion guide
+            on
+            <a href="postgis-web-gis-spatial-applications.html"
+              >PostGIS for Web GIS</a
+            >
+            explains geometry modeling, spatial indexes, API boundaries, and
+            production data design.
+          </p>
+
+          <section class="article-related" aria-labelledby="related-title">
+            <p class="section-kicker">RELATED WORK</p>
+            <h2 id="related-title">Continue through the spatial stack.</h2>
+            <div class="article-related-links">
+              <a href="postgis-web-gis-spatial-applications.html"
+                ><strong>PostGIS for Web GIS</strong
+                ><span>Spatial modeling, indexes, APIs, and operations</span></a
+              >
+              <a href="../projects/falcon-gis.html"
+                ><strong>Falcon GIS</strong
+                ><span
+                  >Spatial workflows, routes, and operational dashboards</span
+                ></a
+              >
+              <a href="arcgis-attribute-rules-arcade.html"
+                ><strong>ArcGIS Attribute Rules with Arcade</strong
+                ><span
+                  >Geodatabase validation and controlled automation</span
+                ></a
+              >
+              <a href="../projects/"
+                ><strong>Selected projects</strong
+                ><span>Browse all public-safe system case studies</span></a
+              >
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Tamer Ali Assaf</span
+        ><span><a href="./">All insights</a> / Road routing</span>
+      </div>
+    </footer>
+    <script src="../assets/script.js"></script>
+  </body>
+</html>

@@ -126,6 +126,11 @@
   color: var(--muted);
 }
 
+.insights-home-list {
+  display: grid;
+  gap: 14px;
+}
+
 .insights-home-entry {
   padding: clamp(28px, 5vw, 48px);
   border: 1px solid var(--line);
@@ -138,6 +143,14 @@
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1;
   letter-spacing: -0.045em;
+}
+
+.insights-home-entry.compact h3 {
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+}
+
+.insights-home-entry.compact .btn {
+  margin-top: 10px;
 }
 
 .insights-home-entry > p:not(.section-kicker) {
