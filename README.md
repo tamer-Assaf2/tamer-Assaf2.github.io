@@ -10,6 +10,8 @@ Current case studies:
 
 - `projects/rawabi-bus-tracking.html`
 - `projects/asfour-market.html`
+- `projects/gemeco-academy.html`
+- `projects/falcon-gis.html`
 
 ## Project structure
 

@@ -982,6 +982,12 @@ footer a {
   background: var(--panel);
 }
 
+.client-case-list {
+  display: grid;
+  gap: clamp(22px, 4vw, 38px);
+  margin-top: 22px;
+}
+
 .featured-case {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
