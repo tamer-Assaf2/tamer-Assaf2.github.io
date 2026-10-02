@@ -14,10 +14,16 @@ Current case studies:
 - `projects/gemeco-academy.html`
 - `projects/falcon-gis.html`
 
+Current technical insights:
+
+- `insights/index.html`: crawlable technical-writing hub
+- `insights/arcgis-attribute-rules-arcade.html`: practical ArcGIS Attribute Rules article
+
 ## Project structure
 
 - `index.html`: semantic page content and SEO metadata
 - `assets/style.css`: responsive light and dark themes
+- `assets/insights.css`: editorial layouts for the Insights hub and articles
 - `assets/script.js`: navigation, theme preference, and reveal behavior
 - `assets/images/profile.jpeg`: profile portrait
 - `assets/images/spatial-network.png`: generated geospatial project artwork

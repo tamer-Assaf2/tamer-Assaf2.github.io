@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A practical guide to ArcGIS Attribute Rules with Arcade for validation, parent-child logic, cross-layer lookups, derived values, and controlled GIS updates."
+    />
+    <meta name="author" content="Tamer Ali Assaf" />
+    <meta name="theme-color" content="#f4f7f8" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="ArcGIS Attribute Rules with Arcade | Tamer Ali Assaf"
+    />
+    <meta
+      property="og:description"
+      content="Practical patterns for geodatabase automation using Arcade Attribute Rules."
+    />
+    <meta
+      property="og:image"
+      content="https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://tamer-assaf2.github.io/insights/arcgis-attribute-rules-arcade.html"
+    />
+    <meta property="og:site_name" content="Tamer Ali Assaf" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:published_time" content="2026-10-02" />
+    <meta property="article:modified_time" content="2026-10-02" />
+    <meta property="article:author" content="Tamer Ali Assaf" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ArcGIS Attribute Rules with Arcade | Tamer Ali Assaf"
+    />
+    <meta
+      name="twitter:description"
+      content="Practical enterprise GIS automation patterns using Arcade Attribute Rules."
+    />
+    <meta
+      name="twitter:image"
+      content="https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg"
+    />
+    <link
+      rel="canonical"
+      href="https://tamer-assaf2.github.io/insights/arcgis-attribute-rules-arcade.html"
+    />
+    <title>ArcGIS Attribute Rules with Arcade | Tamer Ali Assaf</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../site.webmanifest" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../assets/insights.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TechArticle",
+            "headline": "ArcGIS Attribute Rules with Arcade: Automating Enterprise GIS Workflows",
+            "description": "A practical guide to geodatabase automation with Arcade Attribute Rules.",
+            "image": "https://tamer-assaf2.github.io/assets/images/tamer-assaf-geospatial-systems.jpg",
+            "datePublished": "2026-10-02",
+            "dateModified": "2026-10-02",
+            "inLanguage": "en",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://tamer-assaf2.github.io/insights/arcgis-attribute-rules-arcade.html"
+            },
+            "author": {
+              "@type": "Person",
+              "@id": "https://tamer-assaf2.github.io/#person",
+              "name": "Tamer Ali Assaf",
+              "url": "https://tamer-assaf2.github.io/"
+            },
+            "publisher": {
+              "@type": "Person",
+              "@id": "https://tamer-assaf2.github.io/#person",
+              "name": "Tamer Ali Assaf"
+            },
+            "keywords": [
+              "ArcGIS Attribute Rules",
+              "Arcade",
+              "Enterprise GIS",
+              "GIS automation",
+              "geodatabase",
+              "ArcGIS Pro"
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://tamer-assaf2.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://tamer-assaf2.github.io/insights/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "ArcGIS Attribute Rules with Arcade",
+                "item": "https://tamer-assaf2.github.io/insights/arcgis-attribute-rules-arcade.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="nav-wrap">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a
+          class="brand"
+          href="../index.html"
+          aria-label="Tamer Ali Assaf, portfolio home"
+          >Tamer Ali Assaf<span>.</span></a
+        >
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch color theme"
+          >
+            Theme
+          </button>
+          <button
+            class="menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            Menu
+          </button>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#about">About</a>
+          <a href="../projects/">Work</a>
+          <a href="./" aria-current="page">Insights</a>
+          <a href="../index.html#experience">Experience</a>
+          <a href="../index.html#tools">Toolkit</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="insights-main">
+      <article class="article-layout">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="./">Insights</a> /
+          Attribute Rules
+        </nav>
+
+        <header class="article-header reveal">
+          <p class="section-kicker">ARCADE / ENTERPRISE GIS / AUTOMATION</p>
+          <h1>
+            ArcGIS Attribute Rules with Arcade: Automating Enterprise GIS
+            Workflows
+          </h1>
+          <p class="lead">
+            Attribute Rules move repeatable GIS business logic closer to the
+            data, helping enforce relationships, calculate values, validate
+            edits, and coordinate controlled updates.
+          </p>
+          <div class="article-meta">
+            <span>By Tamer Ali Assaf</span>
+            <time datetime="2026-10-02">October 2, 2026</time>
+            <span>Technical article</span>
+          </div>
+        </header>
+
+        <figure class="article-cover reveal">
+          <img
+            src="../assets/images/tamer-assaf-geospatial-systems.jpg"
+            alt="Aerial terrain with geospatial network and routing overlays"
+            width="1586"
+            height="992"
+            fetchpriority="high"
+          />
+        </figure>
+
+        <div class="article-note">
+          <strong>Public-safe scope:</strong> The patterns below are generalized
+          from practical GIS automation work. They exclude institutional data,
+          credentials, production procedures, private schemas, and sensitive
+          deployment details.
+        </div>
+
+        <nav class="article-toc" aria-label="Article contents">
+          <strong>Contents</strong>
+          <ol>
+            <li><a href="#why">Why Attribute Rules matter</a></li>
+            <li><a href="#patterns">Practical automation patterns</a></li>
+            <li><a href="#architecture">Reusable rule architecture</a></li>
+            <li><a href="#example">Generalized Arcade example</a></li>
+            <li><a href="#design">Design considerations</a></li>
+            <li><a href="#applications">Where the approach fits</a></li>
+          </ol>
+        </nav>
+
+        <div class="article-body">
+          <h2 id="why">Why Attribute Rules matter</h2>
+          <p>
+            Traditional GIS editing often depends on users remembering a
+            procedure or on an external script running after edits. Attribute
+            Rules add another option: selected business logic can run as part of
+            the geodatabase workflow.
+          </p>
+          <p>
+            I use Arcade rules to reduce repetitive editing, keep related
+            attributes synchronized, and make data behavior more predictable.
+            The important question is not how much logic can fit in a rule. It
+            is which logic belongs close to the data.
+          </p>
+          <p>
+            Rules that protect consistency, derive deterministic values, or
+            maintain clear relationships are usually stronger candidates than
+            rules that depend on broad workflows, external services, or hidden
+            side effects.
+          </p>
+
+          <h2 id="patterns">Practical automation patterns</h2>
+          <h3>Parent and child hierarchy logic</h3>
+          <p>
+            A feature can represent a parent entity while other records
+            represent its children. Rules can evaluate those relationships,
+            derive parent state, count child records, or update dependent
+            attributes when an edit occurs.
+          </p>
+
+          <h3>Cross-layer and cross-table lookups</h3>
+          <p>
+            Functions such as <code>FeatureSetByName</code>,
+            <code>Filter</code>, <code>First</code>, and <code>Count</code> can
+            query related content and support deterministic lookups without a
+            separate application request for every edit.
+          </p>
+
+          <h3>Derived values and normalization</h3>
+          <p>
+            Rules can standardize timestamps, populate attributes from an
+            authoritative record, calculate counts, or normalize values so maps,
+            dashboards, and APIs receive more consistent data.
+          </p>
+
+          <h3>Controlled related-feature updates</h3>
+          <p>
+            Arcade edit dictionaries can coordinate selected changes across
+            related features. This capability needs strict ownership rules and
+            safeguards against recursion, unclear dependencies, and accidental
+            update chains.
+          </p>
+
+          <h2 id="architecture">A reusable rule architecture</h2>
+          <p>
+            I treat Attribute Rules as a small rule engine instead of a
+            collection of unrelated expressions. A maintainable rule separates
+            data access, validation, decision logic, and output.
+          </p>
+          <ol class="process-flow" aria-label="Reusable Attribute Rule flow">
+            <li><span>01</span><strong>Receive edited feature</strong></li>
+            <li><span>02</span><strong>Resolve required dataset</strong></li>
+            <li><span>03</span><strong>Filter candidate records</strong></li>
+            <li><span>04</span><strong>Validate and calculate</strong></li>
+            <li><span>05</span><strong>Return value or edit</strong></li>
+          </ol>
+          <p>
+            This structure makes expressions easier to test, document, and
+            maintain, especially when several layers share similar business
+            rules.
+          </p>
+
+          <h2 id="example">A generalized Arcade lookup pattern</h2>
+          <p>
+            The following calculation-rule example copies a status value from a
+            generalized parent layer. Names are intentionally generic and need
+            to be adapted to the target geodatabase.
+          </p>
+          <pre><code>var parentId = $feature.parent_globalid;
+
+if (IsEmpty(parentId)) {
+  return null;
+}
+
+var parents = FeatureSetByName(
+  $datastore,
+  "ParentAssets",
+  ["globalid", "status"],
+  false
+);
+
+var parent = First(
+  Filter(parents, "globalid = @parentId")
+);
+
+return IIf(IsEmpty(parent), null, parent.status);</code></pre>
+          <p>
+            A production rule should also account for field types, null values,
+            GlobalID formatting, dataset naming, branch-versioning behavior,
+            evaluation context, and the cost of repeated queries.
+          </p>
+
+          <h2 id="design">Design considerations</h2>
+          <div class="article-checks">
+            <section>
+              <h3>Keep rules deterministic</h3>
+              <p>
+                A rule should produce a predictable result from known data and a
+                clearly defined edit context.
+              </p>
+            </section>
+            <section>
+              <h3>Control query cost</h3>
+              <p>
+                Request only required fields, filter early, and avoid repeated
+                broad FeatureSet operations.
+              </p>
+            </section>
+            <section>
+              <h3>Prevent edit loops</h3>
+              <p>
+                Rules that edit related features need explicit guards and clear
+                ownership of each update path.
+              </p>
+            </section>
+            <section>
+              <h3>Document dependencies</h3>
+              <p>
+                Record expected layers, fields, domains, relationships,
+                triggers, and evaluation requirements.
+              </p>
+            </section>
+          </div>
+
+          <h2 id="applications">Where this approach fits</h2>
+          <p>
+            These patterns are useful in enterprise GIS environments that need
+            parent-child hierarchy management, automatic counts, cross-layer
+            lookups, derived attributes, validation, timestamp handling, or
+            synchronized updates.
+          </p>
+          <p>
+            They can support municipal GIS, asset management, field-data
+            workflows, operational mapping, and other multi-user spatial
+            systems. Attribute Rules are only one part of the architecture;
+            ArcPy services, PostGIS, APIs, and application workflows may remain
+            better homes for logic with different operational needs.
+          </p>
+
+          <section class="article-related" aria-labelledby="related-title">
+            <p class="section-kicker">RELATED WORK</p>
+            <h2 id="related-title">Continue through the spatial stack.</h2>
+            <div class="article-related-links">
+              <a href="../projects/rawabi-bus-tracking.html"
+                ><strong>Rawabi Bus Tracking System</strong
+                ><span
+                  >Real-time GIS, spatial data, and operational APIs</span
+                ></a
+              >
+              <a href="../projects/falcon-gis.html"
+                ><strong>Falcon GIS</strong
+                ><span
+                  >Spatial workflows, routes, and operational dashboards</span
+                ></a
+              >
+              <a href="../projects/"
+                ><strong>Selected projects</strong
+                ><span>Browse all public-safe system case studies</span></a
+              >
+              <a href="../index.html#contact"
+                ><strong>Discuss a GIS problem</strong
+                ><span>Contact Tamer about engineering collaboration</span></a
+              >
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Tamer Ali Assaf</span
+        ><span><a href="./">All insights</a> / Attribute Rules</span>
+      </div>
+    </footer>
+    <script src="../assets/script.js"></script>
+  </body>
+</html>
