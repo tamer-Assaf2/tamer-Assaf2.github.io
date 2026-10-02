@@ -6,9 +6,10 @@ Static personal portfolio designed for GitHub Pages. The site presents GIS engin
 
 The portfolio separates client systems, institutional GIS, applied research, engineering tools, and public web work. Major private projects are documented through public-safe case studies rather than source-code exposure.
 
-Current case study:
+Current case studies:
 
 - `projects/rawabi-bus-tracking.html`
+- `projects/asfour-market.html`
 
 ## Project structure
 
@@ -17,6 +18,7 @@ Current case study:
 - `assets/script.js`: navigation, theme preference, and reveal behavior
 - `assets/images/profile.jpeg`: profile portrait
 - `assets/images/spatial-network.png`: generated geospatial project artwork
+- `assets/docs/Tamer-Ali-Assaf-CV.pdf`: downloadable curriculum vitae
 - `projects/`: detailed public-safe case studies
 - `robots.txt` and `sitemap.xml`: search-engine discovery
 

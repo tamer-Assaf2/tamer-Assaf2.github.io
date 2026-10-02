@@ -508,8 +508,10 @@ button {
 }
 
 .credential-strip .quick-stack {
-  justify-content: space-between;
-  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 42px);
+  margin: 0 auto;
   padding-block: 18px;
 }
 
@@ -518,6 +520,7 @@ button {
   border: 0;
   border-radius: 0;
   font-weight: 750;
+  line-height: 1.4;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -786,7 +789,7 @@ html.js .reveal.is-pending.is-visible {
   }
 
   .credential-strip .quick-stack {
-    justify-content: flex-start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about-grid,
@@ -813,6 +816,10 @@ html.js .reveal.is-pending.is-visible {
 @media (max-width: 620px) {
   .theme-toggle {
     display: none;
+  }
+
+  .credential-strip .quick-stack {
+    grid-template-columns: 1fr;
   }
 
   .section {
@@ -1072,6 +1079,17 @@ footer a {
   margin: 0;
 }
 
+.case-link {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 8px;
+  color: var(--accent2);
+  font-weight: 800;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
 .operational-work {
   background: var(--panel);
 }
@@ -1176,6 +1194,75 @@ footer a {
 }
 
 .timeline-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.credentials-section {
+  background: var(--panel);
+}
+
+.credentials-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  gap: clamp(46px, 8vw, 110px);
+  align-items: start;
+}
+
+.education-block h2 {
+  margin-top: 10px;
+}
+
+.education-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--line);
+}
+
+.education-facts > div {
+  min-height: 112px;
+  padding: 20px;
+  background: var(--bg);
+}
+
+.education-facts dt {
+  margin-bottom: 8px;
+  color: var(--accent2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.education-facts dd {
+  margin: 0;
+  color: var(--text);
+}
+
+.training-block h3 {
+  margin: 0 0 22px;
+  font-size: 1.5rem;
+}
+
+.training-list {
+  border-top: 1px solid var(--line);
+}
+
+.training-list article {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.training-list strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.training-list p {
   margin: 0;
   color: var(--muted);
 }
@@ -1531,6 +1618,7 @@ footer a {
   .operational-layout,
   .research-section,
   .experience-section,
+  .credentials-layout,
   .case-hero,
   .case-overview,
   .gis-layout,
@@ -1602,6 +1690,7 @@ footer a {
   }
 
   .case-evidence dl,
+  .education-facts,
   .role-grid,
   .module-groups,
   .decision-list {
