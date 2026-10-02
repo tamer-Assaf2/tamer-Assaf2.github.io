@@ -8,6 +8,7 @@ The portfolio separates client systems, institutional GIS, applied research, eng
 
 Current case studies:
 
+- `projects/index.html`: crawlable project collection and internal-linking hub
 - `projects/rawabi-bus-tracking.html`
 - `projects/asfour-market.html`
 - `projects/gemeco-academy.html`
@@ -20,7 +21,10 @@ Current case studies:
 - `assets/script.js`: navigation, theme preference, and reveal behavior
 - `assets/images/profile.jpeg`: profile portrait
 - `assets/images/spatial-network.png`: generated geospatial project artwork
+- `assets/images/tamer-assaf-geospatial-systems.jpg`: compressed, descriptive web and social image
 - `assets/docs/Tamer-Ali-Assaf-CV.pdf`: downloadable curriculum vitae
+- `favicon.svg` and `site.webmanifest`: browser and installable-site identity
+- `404.html`: custom not-found page with recovery navigation
 - `projects/`: detailed public-safe case studies
 - `robots.txt` and `sitemap.xml`: search-engine discovery
 
