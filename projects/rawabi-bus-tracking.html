@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Public-safe case study of the Rawabi Bus Tracking System designed and developed by geospatial software engineer Tamer Ali Assaf."
+    />
+    <meta name="author" content="Tamer Ali Assaf" />
+    <meta name="theme-color" content="#0b1118" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Rawabi Bus Tracking System | Tamer Ali Assaf"
+    />
+    <meta
+      property="og:description"
+      content="School transportation, GIS, real-time tracking, spatial databases, APIs, mobile workflows, and system architecture."
+    />
+    <meta
+      property="og:image"
+      content="https://tamer-assaf2.github.io/assets/images/spatial-network.png"
+    />
+    <meta
+      property="og:url"
+      content="https://tamer-assaf2.github.io/projects/rawabi-bus-tracking.html"
+    />
+    <link
+      rel="canonical"
+      href="https://tamer-assaf2.github.io/projects/rawabi-bus-tracking.html"
+    />
+    <title>Rawabi Bus Tracking System | Tamer Ali Assaf</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Rawabi Bus Tracking System",
+        "description": "A school transportation and trip-management platform combining GIS, real-time tracking, spatial databases, APIs, and role-based applications.",
+        "dateCreated": "2026",
+        "author": {
+          "@type": "Person",
+          "name": "Tamer Ali Assaf",
+          "url": "https://tamer-assaf2.github.io/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="nav-wrap">
+      <nav class="nav container" aria-label="Case study navigation">
+        <a
+          class="brand"
+          href="../index.html"
+          aria-label="Tamer Ali Assaf, portfolio home"
+          >TA<span>.</span></a
+        >
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch color theme"
+          >
+            Theme
+          </button>
+          <button
+            class="menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            Menu
+          </button>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html#projects">All work</a>
+          <a href="#role">My role</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#privacy">Privacy</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="case-hero container">
+        <div class="case-hero-copy reveal">
+          <div class="status-line">
+            <span>Private client project</span><span>2026</span
+            ><span>Transportation platform</span>
+          </div>
+          <h1>Rawabi Bus Tracking System</h1>
+          <p>
+            An end-to-end school transportation platform connecting live vehicle
+            tracking, GIS, trip operations, role-based applications, and
+            communication.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#overview">Read case study</a
+            ><a class="btn" href="../index.html#projects">Back to work</a>
+          </div>
+        </div>
+        <figure
+          class="case-hero-panel reveal"
+          aria-labelledby="system-view-title"
+        >
+          <figcaption id="system-view-title">System view</figcaption>
+          <div class="system-layers">
+            <div>
+              <span>Field layer</span
+              ><strong>Drivers / Supervisors / Vehicles</strong>
+            </div>
+            <div>
+              <span>Service layer</span
+              ><strong>Trips / Tracking / Alerts / APIs</strong>
+            </div>
+            <div>
+              <span>Data layer</span
+              ><strong>PostgreSQL / PostGIS / MongoDB</strong>
+            </div>
+            <div>
+              <span>Experience layer</span
+              ><strong>Parents / Operations / Administration</strong>
+            </div>
+          </div>
+        </figure>
+      </section>
+
+      <div class="case-evidence">
+        <div class="container">
+          <dl>
+            <div>
+              <dt>Client context</dt>
+              <dd>Rawabi English Academy</dd>
+            </div>
+            <div>
+              <dt>Category</dt>
+              <dd>School transportation and trip management</dd>
+            </div>
+            <div>
+              <dt>Primary domain</dt>
+              <dd>Full-stack GIS and real-time operations</dd>
+            </div>
+            <div>
+              <dt>Source code</dt>
+              <dd>Private and proprietary</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <section id="overview" class="section container case-overview">
+        <div class="reveal">
+          <h2>One operational system for every trip.</h2>
+        </div>
+        <div class="case-prose reveal">
+          <p>
+            The platform manages buses, students, parents, supervisors, drivers,
+            routes, stops, and daily school trips inside one connected
+            operational workflow.
+          </p>
+          <p>
+            GIS provides the spatial context while backend services, live
+            events, notifications, and role-based interfaces coordinate the
+            people and actions around each trip.
+          </p>
+        </div>
+      </section>
+
+      <section id="role" class="section role-section">
+        <div class="container">
+          <h2 class="reveal">My role covered the full system architecture.</h2>
+          <div class="role-grid">
+            <article class="reveal">
+              <h3>System architecture</h3>
+              <p>
+                Defined the platform structure, responsibilities, service
+                boundaries, operational flows, and integration points.
+              </p>
+            </article>
+            <article class="reveal">
+              <h3>Database design</h3>
+              <p>
+                Designed operational and spatial data structures for routes,
+                stops, trips, vehicles, users, and tracking workflows.
+              </p>
+            </article>
+            <article class="reveal">
+              <h3>Backend and APIs</h3>
+              <p>
+                Developed backend services, REST interfaces, authentication
+                flows, and real-time communication for connected applications.
+              </p>
+            </article>
+            <article class="reveal">
+              <h3>GIS integration</h3>
+              <p>
+                Connected route, stop, vehicle, and trip information to
+                interactive maps and spatial database capabilities.
+              </p>
+            </article>
+            <article class="reveal">
+              <h3>Operational workflows</h3>
+              <p>
+                Engineered role-based flows for administration, supervisors,
+                drivers, parents, students, and daily trip activities.
+              </p>
+            </article>
+            <article class="reveal">
+              <h3>Platform engineering</h3>
+              <p>
+                Integrated alerts, communication, reporting, and application
+                modules into a maintainable end-to-end system.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture" class="section container architecture-section">
+        <div class="architecture-intro reveal">
+          <h2>Public-safe system architecture.</h2>
+          <p>
+            This diagram explains component responsibilities and data flow
+            without exposing production endpoints, credentials, private schemas,
+            or live operational information.
+          </p>
+        </div>
+        <figure class="architecture-flow reveal">
+          <figcaption class="visually-hidden">
+            Rawabi Bus Tracking System architecture flow
+          </figcaption>
+          <div class="architecture-stage">
+            <span>Input and field activity</span>
+            <strong>GPS / Mobile Clients</strong>
+            <small
+              >Location updates, trip actions, and role-based activity</small
+            >
+          </div>
+          <div class="flow-connector" aria-hidden="true">↓</div>
+          <div class="architecture-stage">
+            <span>Application services</span>
+            <strong>REST + Real-Time API</strong>
+            <small
+              >Authentication, business logic, live events, and
+              integration</small
+            >
+          </div>
+          <div class="flow-connector" aria-hidden="true">↓</div>
+          <div class="architecture-stage">
+            <span>Backend</span>
+            <strong>Node.js / Express</strong>
+            <small
+              >Trips, tracking, routes, alerts, communication, and
+              administration</small
+            >
+          </div>
+          <div class="flow-connector" aria-hidden="true">↓</div>
+          <div class="architecture-stage">
+            <span>Data</span>
+            <strong>PostgreSQL + PostGIS / MongoDB</strong>
+            <small
+              >Operational records, spatial relationships, application data, and
+              location context</small
+            >
+          </div>
+          <div class="flow-connector" aria-hidden="true">↓</div>
+          <div class="architecture-stage">
+            <span>User experiences</span>
+            <strong>Parent / Supervisor / Driver / Admin Applications</strong>
+            <small
+              >Role-specific views, trip visibility, actions, alerts, and
+              management</small
+            >
+          </div>
+        </figure>
+      </section>
+
+      <section class="section container modules-section">
+        <h2 class="reveal">Core system modules.</h2>
+        <div class="module-groups">
+          <div class="reveal">
+            <h3>Transportation operations</h3>
+            <p>
+              Buses, drivers, routes, stops, daily trips, assignments, and
+              operational status.
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Student workflows</h3>
+            <p>
+              Student records, route relationships, boarding, drop-off, and trip
+              participation.
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Live tracking</h3>
+            <p>
+              Vehicle location, map visualization, trip context, and
+              event-driven updates.
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Users and access</h3>
+            <p>
+              Parents, supervisors, drivers, administrators, authentication, and
+              role-based permissions.
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Alerts and communication</h3>
+            <p>
+              Operational notifications and communication between the people
+              responsible for each trip.
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Administration</h3>
+            <p>
+              Configuration, oversight, dashboards, records, and management
+              workflows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gis-section">
+        <div class="container gis-layout">
+          <div class="reveal">
+            <h2>GIS gives the operation its spatial context.</h2>
+            <p>
+              Routes, stops, vehicles, and schools are not isolated records.
+              Their spatial relationships shape how the platform displays
+              activity and supports operational understanding.
+            </p>
+          </div>
+          <dl class="reveal">
+            <div>
+              <dt>Interactive mapping</dt>
+              <dd>
+                Operational entities and live information presented through
+                map-based interfaces.
+              </dd>
+            </div>
+            <div>
+              <dt>Spatial data</dt>
+              <dd>
+                PostGIS supports geographic storage, relationships, and
+                location-aware application logic.
+              </dd>
+            </div>
+            <div>
+              <dt>Real-time context</dt>
+              <dd>
+                Live events connect location updates with the active trip,
+                vehicle, route, and responsible users.
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section container engineering-decisions">
+        <h2 class="reveal">Key engineering considerations.</h2>
+        <div class="decision-list">
+          <article class="reveal">
+            <h3>Role-specific complexity</h3>
+            <p>
+              Each user group needs different information, actions, permissions,
+              and timing while working with the same trip data.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Operational consistency</h3>
+            <p>
+              Trip, route, vehicle, student, and user data must remain connected
+              as daily activity changes.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Real-time coordination</h3>
+            <p>
+              Location and status updates need to reach the correct application
+              context without replacing authoritative operational records.
+            </p>
+          </article>
+          <article class="reveal">
+            <h3>Privacy and access</h3>
+            <p>
+              Student, parent, and operational information requires controlled
+              access and careful separation across user roles.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container outcome-section">
+        <div class="reveal">
+          <h2>Operational value.</h2>
+          <p>
+            The system brings transportation data, spatial context, live
+            activity, and role-based workflows into one platform for clearer
+            visibility and coordination.
+          </p>
+        </div>
+        <div class="outcome-points reveal">
+          <span>Connected trip operations</span>
+          <span>Shared spatial context</span>
+          <span>Role-based applications</span>
+          <span>Live vehicle visibility</span>
+          <span>Centralized administration</span>
+        </div>
+      </section>
+
+      <section id="privacy" class="section privacy-section">
+        <div class="container privacy-note reveal">
+          <div>
+            <h2>Privacy by design in the public case study.</h2>
+            <p>
+              This page intentionally excludes student information, credentials,
+              production endpoints, precise operational data, private database
+              structures, and proprietary source code.
+            </p>
+          </div>
+          <p>
+            Additional technical detail can be discussed privately when
+            appropriate and authorized.
+          </p>
+        </div>
+      </section>
+
+      <section class="section container contact case-contact reveal">
+        <h2>Need a location-aware operational platform?</h2>
+        <p>
+          Available for GIS engineering, spatial databases, real-time systems,
+          APIs, and full-stack application architecture.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:tamer.assaf.contact@gmail.com"
+            >Email Tamer</a
+          ><a class="btn" href="../index.html#contact">Contact options</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Tamer Ali Assaf</span
+        ><span
+          ><a href="../index.html">Portfolio home</a> / Rawabi Bus Tracking
+          System</span
+        >
+      </div>
+    </footer>
+    <script src="../assets/script.js"></script>
+  </body>
+</html>

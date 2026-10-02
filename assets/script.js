@@ -54,6 +54,14 @@ function toggleTheme() {
 }
 
 function prepareReveal(element) {
+  const bounds = element.getBoundingClientRect();
+  const isInitiallyVisible = bounds.top < window.innerHeight && bounds.bottom > 0;
+
+  if (isInitiallyVisible) {
+    element.classList.add("is-visible");
+    return;
+  }
+
   revealObserver.observe(element);
 }
 
@@ -62,6 +70,28 @@ function revealEntries(entries) {
     if (entry.isIntersecting) {
       entry.target.classList.add("is-visible");
       revealObserver.unobserve(entry.target);
+    }
+  });
+}
+
+function updateActiveNavigation(entries) {
+  entries.forEach(function updateEntry(entry) {
+    if (!entry.isIntersecting) {
+      return;
+    }
+
+    document
+      .querySelectorAll('.nav-links a[aria-current="location"]')
+      .forEach(function clearCurrent(link) {
+        link.removeAttribute("aria-current");
+      });
+
+    const activeLink = document.querySelector(
+      `.nav-links a[href="#${entry.target.id}"]`,
+    );
+
+    if (activeLink) {
+      activeLink.setAttribute("aria-current", "location");
     }
   });
 }
@@ -75,19 +105,37 @@ setTheme(savedTheme || systemTheme);
 menuButton.addEventListener("click", toggleMenu);
 themeButton.addEventListener("click", toggleTheme);
 document.addEventListener("keydown", handleEscape);
-document.querySelectorAll(".nav-links a").forEach(function bindNavigation(link) {
-  link.addEventListener("click", closeMenu);
-});
+document
+  .querySelectorAll(".nav-links a")
+  .forEach(function bindNavigation(link) {
+    link.addEventListener("click", closeMenu);
+  });
 
 const revealObserver = new IntersectionObserver(revealEntries, {
   rootMargin: "0px 0px -8% 0px",
   threshold: 0.12,
 });
 
-if (reduceMotion.matches) {
-  document.querySelectorAll(".reveal").forEach(function showImmediately(element) {
-    element.classList.add("is-visible");
+const navigationObserver = new IntersectionObserver(updateActiveNavigation, {
+  rootMargin: "-30% 0px -60% 0px",
+  threshold: 0,
+});
+
+document
+  .querySelectorAll(".nav-links a[href^='#']")
+  .forEach(function observeNavigationTarget(link) {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) {
+      navigationObserver.observe(target);
+    }
   });
+
+if (reduceMotion.matches) {
+  document
+    .querySelectorAll(".reveal")
+    .forEach(function showImmediately(element) {
+      element.classList.add("is-visible");
+    });
 } else {
   document.querySelectorAll(".reveal").forEach(prepareReveal);
 }

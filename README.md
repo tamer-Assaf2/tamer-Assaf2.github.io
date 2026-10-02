@@ -2,6 +2,14 @@
 
 Static personal portfolio designed for GitHub Pages. The site presents GIS engineering, spatial automation, operational platforms, full-stack development, public web projects, and GeoAI research.
 
+## Version 2 foundation
+
+The portfolio separates client systems, institutional GIS, applied research, engineering tools, and public web work. Major private projects are documented through public-safe case studies rather than source-code exposure.
+
+Current case study:
+
+- `projects/rawabi-bus-tracking.html`
+
 ## Project structure
 
 - `index.html`: semantic page content and SEO metadata
@@ -9,6 +17,8 @@ Static personal portfolio designed for GitHub Pages. The site presents GIS engin
 - `assets/script.js`: navigation, theme preference, and reveal behavior
 - `assets/images/profile.jpeg`: profile portrait
 - `assets/images/spatial-network.png`: generated geospatial project artwork
+- `projects/`: detailed public-safe case studies
+- `robots.txt` and `sitemap.xml`: search-engine discovery
 
 No build step or runtime dependencies are required.
 

@@ -1,119 +1,575 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Tamer Ali Assaf, a geospatial software engineer building GIS automation, spatial data systems, Web GIS, and real-time operational platforms." />
-  <meta name="author" content="Tamer Ali Assaf" />
-  <meta name="theme-color" content="#0b1118" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Tamer Ali Assaf | Geospatial Software Engineer" />
-  <meta property="og:description" content="GIS engineering, spatial automation, real-time systems, full-stack development, and GeoAI research." />
-  <meta property="og:image" content="assets/images/spatial-network.png" />
-  <meta property="og:url" content="https://tamer-assaf2.github.io/" />
-  <link rel="canonical" href="https://tamer-assaf2.github.io/" />
-  <title>Tamer Ali Assaf | Geospatial Software Engineer</title>
-  <link rel="stylesheet" href="assets/style.css" />
-</head>
-<body>
-  <header class="nav-wrap">
-    <nav class="nav container">
-      <a class="brand" href="#home" aria-label="Tamer Ali Assaf, home">TA<span>.</span></a>
-      <div class="nav-actions">
-        <button class="theme-toggle" type="button" aria-label="Switch color theme">Theme</button>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      </div>
-      <div class="nav-links" id="nav-links">
-        <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#projects">Work</a><a href="#tools">Toolkit</a><a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Tamer Ali Assaf, a geospatial software engineer building GIS automation, spatial data systems, Web GIS, and real-time operational platforms."
+    />
+    <meta name="author" content="Tamer Ali Assaf" />
+    <meta name="theme-color" content="#0b1118" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Tamer Ali Assaf | Geospatial Software Engineer &amp; GIS Developer"
+    />
+    <meta
+      property="og:description"
+      content="GIS engineering, spatial automation, real-time systems, full-stack development, and GeoAI research."
+    />
+    <meta property="og:image" content="assets/images/spatial-network.png" />
+    <meta property="og:url" content="https://tamer-assaf2.github.io/" />
+    <link rel="canonical" href="https://tamer-assaf2.github.io/" />
+    <title>
+      Tamer Ali Assaf | Geospatial Software Engineer &amp; GIS Developer
+    </title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tamer Ali Assaf",
+        "url": "https://tamer-assaf2.github.io/",
+        "image": "https://tamer-assaf2.github.io/assets/images/profile.jpeg",
+        "jobTitle": "Geospatial Software Engineer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ramallah",
+          "addressCountry": "Palestine"
+        },
+        "sameAs": [
+          "https://github.com/tamer-Assaf2",
+          "https://www.linkedin.com/in/tamer-ali-assaf-704548153/",
+          "https://www.youtube.com/@TamerAssaf-FullStackDev"
+        ],
+        "knowsAbout": [
+          "Geospatial software engineering",
+          "Enterprise GIS",
+          "Spatial data engineering",
+          "GIS automation",
+          "Web GIS",
+          "Real-time systems",
+          "GeoAI"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="nav-wrap">
+      <nav class="nav container">
+        <a class="brand" href="#home" aria-label="Tamer Ali Assaf, home"
+          >TA<span>.</span></a
+        >
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch color theme"
+          >
+            Theme
+          </button>
+          <button
+            class="menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            Menu
+          </button>
+        </div>
+        <div class="nav-links" id="nav-links">
+          <a href="#about">About</a><a href="#projects">Work</a
+          ><a href="#experience">Experience</a><a href="#tools">Toolkit</a
+          ><a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-  <main>
-    <section id="home" class="hero container" aria-labelledby="hero-title">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Tamer Ali Assaf • Ramallah, Palestine</p>
-        <h1 id="hero-title">I build geospatial systems for real-world operations.</h1>
-        <p class="lead">GIS engineering, spatial automation, full-stack applications, real-time data, and decision support in one connected practice.</p>
-        <div class="actions"><a class="btn primary" href="#projects">View work</a><a class="btn" href="#contact">Contact</a></div>
-      </div>
-      <figure class="portrait-card reveal">
-        <img src="assets/images/profile.jpeg" alt="Portrait of Tamer Ali Assaf" width="800" height="1000" fetchpriority="high" />
-        <figcaption>Geospatial Software Engineer<br><span>GIS Specialist and Full-Stack Developer</span></figcaption>
-      </figure>
-    </section>
-    <div class="credential-strip"><div class="container quick-stack"><span>Enterprise GIS</span><span>Spatial Data Engineering</span><span>GIS Automation</span><span>Real-Time Systems</span><span>GeoAI Research</span></div></div>
-
-    <section id="about" class="section container reveal">
-      <p class="section-kicker">ABOUT</p><h2>Maps are only the interface.</h2>
-      <div class="about-grid"><p>I am a Geospatial Software Engineer and GIS Specialist focused on systems that connect spatial databases, enterprise GIS, automation, web applications, and operational workflows.</p><p>Since 2021, I have developed GIS solutions for large-scale planning, monitoring, field coordination, spatial analysis, and decision support. My work also spans commercial platforms and applied GeoAI research.</p></div>
-    </section>
-
-    <section id="expertise" class="section container">
-      <h2>Engineering across the spatial stack.</h2>
-      <div class="cards three">
-        <article class="card featured reveal"><p class="section-kicker">CORE PRACTICE</p><h3>GIS engineering and automation</h3><p>Enterprise GIS architecture, ArcPy workflows, Arcade Attribute Rules, CIM V3 inspection, validation, batch processing, and geodatabase governance.</p><div class="tags"><span>ArcGIS Enterprise</span><span>ArcGIS Pro</span><span>ArcPy</span><span>Arcade</span><span>QGIS</span></div></article>
-        <article class="card reveal"><h3>Spatial data and algorithms</h3><p>PostGIS, SQL Server Spatial, ETL, audit histories, graph construction, Dijkstra routing, and nearest-neighbor search.</p><div class="tags"><span>PostGIS</span><span>Dijkstra</span><span>cKDTree</span><span>OSM</span></div></article>
-        <article class="card reveal"><h3>Web GIS and full-stack systems</h3><p>Node.js, Express, React, OpenLayers, Leaflet, GeoServer, REST APIs, authentication, and event-driven applications.</p><div class="tags"><span>Node.js</span><span>React</span><span>OpenLayers</span><span>REST APIs</span></div></article>
-      </div>
-    </section>
-
-    <section id="projects" class="section container">
-      <p class="section-kicker">SELECTED WORK</p><h2>Operational systems shaped by geography.</h2>
-      <article class="project project-featured reveal">
-        <div class="project-image"><img src="assets/images/spatial-network.png" alt="Aerial terrain with geospatial network and routing overlays" width="1536" height="1024" loading="lazy" /></div>
-        <div><p class="meta">APPLIED RESEARCH</p><h3>GeoCommand AI</h3><p>A modular decision-intelligence concept combining GIS, operational databases, real-time data, AI-assisted analysis, and human oversight.</p><div class="tags"><span>Spatial Risk</span><span>Early Warning</span><span>Explainable AI</span><span>Human-in-the-Loop</span></div></div>
-      </article>
-      <div class="projects">
-        <article class="project reveal"><div class="project-no">01</div><div><p class="meta">TRANSPORTATION PLATFORM</p><h3>Rawabi Bus Tracking System</h3><p>Real-time school transportation software connecting buses, students, parents, routes, alerts, GIS maps, role-based mobile apps, and administration.</p><div class="tags"><span>Node.js</span><span>PostgreSQL</span><span>PostGIS</span><span>OpenLayers</span><span>REST APIs</span></div></div></article>
-        <article class="project reveal"><div class="project-no">02</div><div><p class="meta">OPERATIONAL GIS</p><h3>Large-Scale GIS Platform</h3><p>Command-oriented mapping workflows for planning, resource visualization, route analysis, operational KPIs, field-data integration, and situational awareness.</p><div class="tags"><span>Enterprise GIS</span><span>Spatial Analysis</span><span>Dashboards</span><span>PostGIS</span></div></div></article>
-        <article class="project reveal"><div class="project-no">03</div><div><p class="meta">MISSION MANAGEMENT</p><h3>Falcon GIS</h3><p>GIS-enabled software for mission, vehicle, route, and resource workflows with geospatial monitoring and real-time operational visibility.</p><div class="tags"><span>GIS</span><span>Routing</span><span>Real-Time Tracking</span><span>Operational Dashboards</span></div></div></article>
-      </div>
-      <p class="private reveal">Public descriptions intentionally exclude sensitive deployment, personnel, security, and client information.</p>
-    </section>
-
-    <section class="section container engineering">
-      <h2>Reusable geospatial engineering.</h2>
-      <p class="section-intro">Technical concepts extracted from practical GIS problems and rebuilt as focused engineering tools.</p>
-      <div class="engineering-grid">
-        <article class="engineering-item reveal"><h3>ArcGIS Pro Project Inspector</h3><p>Scans APRX projects, extracts CIM V3 renderers and symbols, normalizes metadata, and exports documentation.</p><span>Python / ArcPy / CIM V3 / JSON</span></article>
-        <article class="engineering-item reveal"><h3>Enterprise GIS Rule Engine</h3><p>Reusable geodatabase business rules for relationships, validation, derived values, and automatic feature updates.</p><span>Arcade / Attribute Rules / Enterprise GDB</span></article>
-        <article class="engineering-item reveal"><h3>Open Road Routing Engine</h3><p>Transforms road geometry into a searchable graph for nearest-node matching and shortest-path route generation.</p><span>Python / OSM / Dijkstra / cKDTree</span></article>
-        <article class="engineering-item reveal"><h3>Spatial Database Audit Engine</h3><p>Preserves geometry-aware record histories across insert, update, and delete operations for accountable GIS workflows.</p><span>SQL Server Spatial / Triggers / Audit History</span></article>
-      </div>
-    </section>
-
-    <section class="section public-work">
-      <div class="container public-layout">
-        <div class="public-intro reveal"><p class="section-kicker">PUBLIC WEB PROJECTS</p><h2>Production websites in the open.</h2><p>Bilingual content, responsive interfaces, structured metadata, custom UI implementation, and production deployment.</p></div>
-        <div class="public-links">
-          <a class="public-link reveal" href="https://superplus.ps" target="_blank" rel="noopener noreferrer"><span><strong>SuperPlus</strong><small>Water purification company website</small></span><b aria-hidden="true">↗</b></a>
-          <a class="public-link reveal" href="https://ramallahdigital.ps" target="_blank" rel="noopener noreferrer"><span><strong>Ramallah Digital</strong><small>Media production company website</small></span><b aria-hidden="true">↗</b></a>
-          <a class="public-link reveal" href="https://perfectmood.ps" target="_blank" rel="noopener noreferrer"><span><strong>PerfectMood</strong><small>Restaurant and menu website</small></span><b aria-hidden="true">↗</b></a>
+    <main id="main-content">
+      <section id="home" class="hero container" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Tamer Ali Assaf • Ramallah, Palestine</p>
+          <h1 id="hero-title">
+            I build geospatial systems for real-world operations.
+          </h1>
+          <p class="lead">
+            GIS engineering, spatial automation, full-stack applications,
+            real-time data, and decision support in one connected practice.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">View work</a
+            ><a class="btn" href="#contact">Contact</a>
+          </div>
+        </div>
+        <figure class="portrait-card reveal">
+          <img
+            src="assets/images/profile.jpeg"
+            alt="Portrait of Tamer Ali Assaf"
+            width="800"
+            height="1000"
+            fetchpriority="high"
+          />
+          <figcaption>
+            Geospatial Software Engineer<br /><span
+              >GIS Specialist and Full-Stack Developer</span
+            >
+          </figcaption>
+        </figure>
+      </section>
+      <div class="credential-strip">
+        <div class="container quick-stack">
+          <span>GIS + software engineering since 2021</span
+          ><span>Client and operational systems</span
+          ><span>Web, mobile, and spatial platforms</span
+          ><span>Enterprise GIS + PostGIS + real-time systems</span>
         </div>
       </div>
-    </section>
 
-    <section id="tools" class="section container">
-      <h2>Technology toolkit.</h2>
-      <div class="tool-grid"><div class="reveal"><h3>Geospatial</h3><p>ArcGIS Enterprise, ArcGIS Pro, QGIS, GeoServer, PostGIS, OpenLayers, Leaflet</p></div><div class="reveal"><h3>Automation</h3><p>Python, ArcPy, Arcade, Attribute Rules, CIM V3, SQL, batch geoprocessing</p></div><div class="reveal"><h3>Application engineering</h3><p>JavaScript, Node.js, Express, React, PostgreSQL, MongoDB, REST APIs, Socket.IO</p></div><div class="reveal"><h3>Spatial methods</h3><p>Graph algorithms, Dijkstra, cKDTree, OSM processing, ETL, data reconciliation</p></div></div>
-    </section>
+      <section id="about" class="section container">
+        <div class="about-v2">
+          <div class="reveal">
+            <h2>Maps are only the interface.</h2>
+            <p>
+              I engineer the systems behind the map: spatial databases, business
+              rules, APIs, automation, live events, and operational
+              applications.
+            </p>
+            <p>
+              Since 2021, my work has connected geographic data with planning,
+              field coordination, monitoring, analysis, and human
+              decision-making.
+            </p>
+          </div>
+          <figure
+            class="system-model reveal"
+            aria-labelledby="system-model-title"
+          >
+            <figcaption id="system-model-title">
+              How the spatial system connects
+            </figcaption>
+            <ol>
+              <li><span>01</span>Spatial data</li>
+              <li><span>02</span>Rules and automation</li>
+              <li><span>03</span>APIs and live events</li>
+              <li><span>04</span>Web and mobile apps</li>
+              <li><span>05</span>Operational decisions</li>
+            </ol>
+          </figure>
+        </div>
+      </section>
 
-    <section id="contact" class="section container contact reveal">
-      <p class="section-kicker">CONTACT</p><h2>Build something spatial.</h2><p>Available for GIS engineering, spatial-data systems, full-stack development, GeoAI research, and technical collaboration.</p>
-      <div class="actions"><a class="btn primary" href="mailto:tamer.assaf.contact@gmail.com">Email Tamer</a>
-        <a class="btn" href="https://github.com/tamer-Assaf2" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/tamer-ali-assaf-704548153/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn" href="https://www.youtube.com/@TamerAssaf-FullStackDev" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a class="btn" href="https://www.instagram.com/tamer.assaf44" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a class="btn" href="https://www.facebook.com/tamtechgis" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <section id="expertise" class="section container">
+        <h2>Engineering across the spatial stack.</h2>
+        <div class="cards three">
+          <article class="card featured reveal">
+            <p class="section-kicker">CORE PRACTICE</p>
+            <h3>GIS engineering and automation</h3>
+            <p>
+              Enterprise GIS architecture, ArcPy workflows, Arcade Attribute
+              Rules, CIM V3 inspection, validation, batch processing, and
+              geodatabase governance.
+            </p>
+            <div class="tags">
+              <span>ArcGIS Enterprise</span><span>ArcGIS Pro</span
+              ><span>ArcPy</span><span>Arcade</span><span>QGIS</span>
+            </div>
+          </article>
+          <article class="card reveal">
+            <h3>Spatial data and algorithms</h3>
+            <p>
+              PostGIS, SQL Server Spatial, ETL, audit histories, graph
+              construction, Dijkstra routing, and nearest-neighbor search.
+            </p>
+            <div class="tags">
+              <span>PostGIS</span><span>Dijkstra</span><span>cKDTree</span
+              ><span>OSM</span>
+            </div>
+          </article>
+          <article class="card reveal">
+            <h3>Web GIS and full-stack systems</h3>
+            <p>
+              Node.js, Express, React, OpenLayers, Leaflet, GeoServer, REST
+              APIs, authentication, and event-driven applications.
+            </p>
+            <div class="tags">
+              <span>Node.js</span><span>React</span><span>OpenLayers</span
+              ><span>REST APIs</span>
+            </div>
+          </article>
+        </div>
+      </section>
 
+      <section id="projects" class="section container">
+        <p class="section-kicker">CLIENT SYSTEMS</p>
+        <h2>Platforms designed around real operations.</h2>
+        <article class="case-card featured-case reveal">
+          <div class="case-summary">
+            <div class="status-line">
+              <span>Private client project</span><span>2026</span
+              ><span>Transportation platform</span>
+            </div>
+            <h3>Rawabi Bus Tracking System</h3>
+            <p class="case-value">
+              An end-to-end school transportation platform connecting live
+              vehicle tracking, trip operations, GIS, mobile users, and
+              administration.
+            </p>
+            <a class="btn primary" href="projects/rawabi-bus-tracking.html"
+              >View case study</a
+            >
+          </div>
+          <dl class="case-facts">
+            <div>
+              <dt>Client context</dt>
+              <dd>Rawabi English Academy</dd>
+            </div>
+            <div>
+              <dt>My role</dt>
+              <dd>
+                System architecture, database design, backend development, GIS
+                integration, APIs, and real-time workflows
+              </dd>
+            </div>
+            <div>
+              <dt>Key systems</dt>
+              <dd>
+                Trips, routes, stops, users, tracking, alerts, communication,
+                and role-based applications
+              </dd>
+            </div>
+            <div>
+              <dt>Technology</dt>
+              <dd>
+                Node.js, Express, PostgreSQL, PostGIS, MongoDB, OpenLayers, REST
+                APIs
+              </dd>
+            </div>
+          </dl>
+        </article>
 
+        <div class="case-list">
+          <article class="case-row reveal">
+            <div class="status-line">
+              <span>Private client project</span><span>2026</span>
+            </div>
+            <div>
+              <h3>Jemico Academy Platform</h3>
+              <p>
+                Integrated learning and training software for content delivery,
+                users, assessments, certificates, schedules, and platform
+                administration.
+              </p>
+            </div>
+            <dl>
+              <dt>My role</dt>
+              <dd>
+                Application architecture, backend and database design,
+                authentication and integration workflows, platform modules, and
+                deployment engineering
+              </dd>
+            </dl>
+          </article>
+          <article class="case-row reveal">
+            <div class="status-line">
+              <span>Private client project</span
+              ><span>Operational platform</span>
+            </div>
+            <div>
+              <h3>Falcon GIS</h3>
+              <p>
+                GIS-enabled mission management for vehicles, routes, operational
+                locations, resources, dashboards, and real-time visibility.
+              </p>
+            </div>
+            <dl>
+              <dt>My role</dt>
+              <dd>
+                System design, GIS integration, spatial workflows, route
+                management, data architecture, and operational dashboards
+              </dd>
+            </dl>
+          </article>
+        </div>
+      </section>
 
+      <section class="section operational-work">
+        <div class="container operational-layout">
+          <div class="reveal">
+            <h2>Operational and institutional GIS.</h2>
+            <p>
+              Public-safe descriptions focus on engineering capabilities while
+              excluding personnel, deployment, security, and operational
+              details.
+            </p>
+          </div>
+          <article class="operational-case reveal">
+            <div class="status-line">
+              <span>Institutional work</span><span>Since 2021</span>
+            </div>
+            <h3>Large-Scale Operational GIS</h3>
+            <p>
+              Enterprise GIS workflows supporting spatial planning, operational
+              mapping, resource visualization, field-data integration,
+              monitoring, dashboards, and decision support.
+            </p>
+            <dl>
+              <dt>My role</dt>
+              <dd>
+                GIS solution development, spatial workflow design, operational
+                mapping, data integration, analysis, and dashboard
+                implementation
+              </dd>
+            </dl>
+            <div class="tags">
+              <span>Enterprise GIS</span><span>Spatial Analysis</span
+              ><span>PostGIS</span><span>Decision Support</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container research-section">
+        <div class="research-visual reveal">
+          <img
+            src="assets/images/spatial-network.png"
+            alt="Aerial terrain with geospatial network and routing overlays"
+            width="1536"
+            height="1024"
+            loading="lazy"
+          />
+        </div>
+        <div class="research-copy reveal">
+          <div class="status-line">
+            <span>Applied research</span><span>In development</span>
+          </div>
+          <h2>GeoCommand AI</h2>
+          <p>
+            A product concept exploring how GIS, operational databases,
+            real-time data, and explainable AI can support spatial analysis
+            without removing human authority.
+          </p>
+          <dl>
+            <dt>Research focus</dt>
+            <dd>
+              Spatial risk assessment, early warning, scenario analysis,
+              resource optimization, explainable recommendations, and
+              Human-in-the-Loop decisions
+            </dd>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section container engineering">
+        <h2>Reusable geospatial engineering.</h2>
+        <p class="section-intro">
+          Technical concepts extracted from practical GIS problems and rebuilt
+          as focused engineering tools.
+        </p>
+        <div class="engineering-grid">
+          <article class="engineering-item reveal">
+            <h3>ArcGIS Pro Project Inspector</h3>
+            <p>
+              Scans APRX projects, extracts CIM V3 renderers and symbols,
+              normalizes metadata, and exports documentation.
+            </p>
+            <span>Python / ArcPy / CIM V3 / JSON</span>
+          </article>
+          <article class="engineering-item reveal">
+            <h3>Enterprise GIS Rule Engine</h3>
+            <p>
+              Reusable geodatabase business rules for relationships, validation,
+              derived values, and automatic feature updates.
+            </p>
+            <span>Arcade / Attribute Rules / Enterprise GDB</span>
+          </article>
+          <article class="engineering-item reveal">
+            <h3>Open Road Routing Engine</h3>
+            <p>
+              Transforms road geometry into a searchable graph for nearest-node
+              matching and shortest-path route generation.
+            </p>
+            <span>Python / OSM / Dijkstra / cKDTree</span>
+          </article>
+          <article class="engineering-item reveal">
+            <h3>Spatial Database Audit Engine</h3>
+            <p>
+              Preserves geometry-aware record histories across insert, update,
+              and delete operations for accountable GIS workflows.
+            </p>
+            <span>SQL Server Spatial / Triggers / Audit History</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section public-work">
+        <div class="container public-layout">
+          <div class="public-intro reveal">
+            <p class="section-kicker">PUBLIC WEB PROJECTS</p>
+            <h2>Production websites in the open.</h2>
+            <p>
+              Bilingual content, responsive interfaces, structured metadata,
+              custom UI implementation, and production deployment.
+            </p>
+          </div>
+          <div class="public-links">
+            <a
+              class="public-link reveal"
+              href="https://superplus.ps"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span
+                ><strong>SuperPlus</strong
+                ><small>Water purification company website</small></span
+              ><b aria-hidden="true">↗</b></a
+            >
+            <a
+              class="public-link reveal"
+              href="https://ramallahdigital.ps"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span
+                ><strong>Ramallah Digital</strong
+                ><small>Media production company website</small></span
+              ><b aria-hidden="true">↗</b></a
+            >
+            <a
+              class="public-link reveal"
+              href="https://perfectmood.ps"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span
+                ><strong>PerfectMood</strong
+                ><small>Restaurant and menu website</small></span
+              ><b aria-hidden="true">↗</b></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section container experience-section">
+        <div class="experience-intro reveal">
+          <h2>Experience built across GIS and software.</h2>
+          <p>
+            The progression is consistent: from spatial analysis and operational
+            mapping into automation, databases, APIs, real-time systems, and
+            full-stack platforms.
+          </p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <time datetime="2021">2021 - Present</time>
+            <div>
+              <h3>Operational GIS Engineering</h3>
+              <p>
+                GIS solutions for large-scale planning, operational mapping,
+                monitoring, spatial analysis, field coordination, dashboards,
+                and decision-support workflows.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <time>Client systems</time>
+            <div>
+              <h3>Geospatial and Full-Stack Platforms</h3>
+              <p>
+                Architecture and development across transportation, mission
+                management, learning platforms, public websites, spatial
+                databases, APIs, and real-time applications.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <time>Current research</time>
+            <div>
+              <h3>GeoAI and Decision Intelligence</h3>
+              <p>
+                Exploring explainable, Human-in-the-Loop approaches for spatial
+                risk, early warning, data governance, and operational
+                recommendations.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="tools" class="section container">
+        <h2>Technology toolkit.</h2>
+        <div class="tool-grid">
+          <div class="reveal">
+            <h3>Geospatial</h3>
+            <p>
+              ArcGIS Enterprise, ArcGIS Pro, QGIS, GeoServer, PostGIS,
+              OpenLayers, Leaflet
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Automation</h3>
+            <p>
+              Python, ArcPy, Arcade, Attribute Rules, CIM V3, SQL, batch
+              geoprocessing
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Application engineering</h3>
+            <p>
+              JavaScript, Node.js, Express, React, PostgreSQL, MongoDB, REST
+              APIs, Socket.IO
+            </p>
+          </div>
+          <div class="reveal">
+            <h3>Spatial methods</h3>
+            <p>
+              Graph algorithms, Dijkstra, cKDTree, OSM processing, ETL, data
+              reconciliation
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section container contact reveal">
+        <p class="section-kicker">CONTACT</p>
+        <h2>Build something spatial.</h2>
+        <p>
+          Available for GIS engineering, spatial-data systems, full-stack
+          development, GeoAI research, and technical collaboration.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:tamer.assaf.contact@gmail.com"
+            >Email Tamer</a
+          >
+          <a
+            class="btn"
+            href="https://www.linkedin.com/in/tamer-ali-assaf-704548153/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            class="btn"
+            href="https://github.com/tamer-Assaf2"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Tamer Ali Assaf</span
+        ><span
+          ><a
+            href="https://www.youtube.com/@TamerAssaf-FullStackDev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >YouTube</a
+          >
+          / Geospatial Software Engineering / GIS Automation / GeoAI</span
+        >
       </div>
-    </section>
-  </main>
-  <footer><div class="container footer-inner"><span>© <span id="year"></span> Tamer Ali Assaf</span><span>Geospatial Software Engineering / GIS Automation / GeoAI</span></div></footer>
-  <script src="assets/script.js"></script>
-</body>
+    </footer>
+    <script src="assets/script.js"></script>
+  </body>
 </html>
