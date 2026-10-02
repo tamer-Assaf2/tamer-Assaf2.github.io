@@ -421,11 +421,11 @@ button {
 }
 
 .hero {
-  min-height: calc(100dvh - 72px);
+  min-height: auto;
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
   gap: clamp(36px, 7vw, 92px);
   align-items: start;
-  padding-block: clamp(48px, 8vh, 88px);
+  padding-block: clamp(64px, 8vw, 96px);
 }
 
 .eyebrow,
@@ -743,7 +743,7 @@ button {
   outline-offset: 4px;
 }
 
-html.js .reveal {
+html.js .reveal.is-pending {
   opacity: 0;
   transform: translateY(18px);
   transition:
@@ -751,7 +751,7 @@ html.js .reveal {
     transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-html.js .reveal.is-visible {
+html.js .reveal.is-pending.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -861,7 +861,7 @@ html.js .reveal.is-visible {
     transition-duration: 0.01ms !important;
   }
 
-  html.js .reveal {
+  html.js .reveal.is-pending {
     opacity: 1;
     transform: none;
   }
@@ -952,6 +952,9 @@ footer a {
 .status-line {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  align-self: start;
   gap: 8px;
   margin-bottom: 18px;
 }
@@ -963,6 +966,7 @@ footer a {
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 750;
+  line-height: 1.35;
 }
 
 .case-card {
