@@ -815,8 +815,23 @@ html.js .reveal.is-pending.is-visible {
 }
 
 @media (max-width: 620px) {
-  .theme-toggle {
-    display: none;
+  .nav {
+    gap: 8px;
+  }
+
+  .brand {
+    font-size: 1.08rem;
+  }
+
+  .nav-actions {
+    gap: 5px;
+  }
+
+  .theme-toggle,
+  .menu-btn {
+    min-height: 38px;
+    padding: 7px 9px;
+    font-size: 0.8rem;
   }
 
   .credential-strip .quick-stack {
