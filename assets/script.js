@@ -6,14 +6,24 @@ const navigation = document.querySelector(".nav-links");
 const themeButton = document.querySelector(".theme-toggle");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-year.textContent = new Date().getFullYear();
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
 
 function closeMenu() {
+  if (!navigation || !menuButton) {
+    return;
+  }
+
   navigation.classList.remove("open");
   menuButton.setAttribute("aria-expanded", "false");
 }
 
 function toggleMenu() {
+  if (!navigation || !menuButton) {
+    return;
+  }
+
   const isOpen = navigation.classList.toggle("open");
   menuButton.setAttribute("aria-expanded", String(isOpen));
 }
@@ -34,6 +44,11 @@ function getSavedTheme() {
 
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
+
+  if (!themeButton) {
+    return;
+  }
+
   themeButton.textContent = theme === "dark" ? "Light theme" : "Dark theme";
   themeButton.setAttribute(
     "aria-label",
@@ -144,8 +159,13 @@ const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
   : "light";
 setTheme(savedTheme || systemTheme);
 
-menuButton.addEventListener("click", toggleMenu);
-themeButton.addEventListener("click", toggleTheme);
+if (menuButton) {
+  menuButton.addEventListener("click", toggleMenu);
+}
+
+if (themeButton) {
+  themeButton.addEventListener("click", toggleTheme);
+}
 document.addEventListener("keydown", handleEscape);
 document
   .querySelectorAll(".nav-links a")

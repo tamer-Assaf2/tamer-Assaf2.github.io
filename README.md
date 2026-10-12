@@ -21,6 +21,10 @@ Current technical insights:
 - `insights/postgis-web-gis-spatial-applications.html`: PostGIS and Web GIS database design article
 - `insights/road-routing-dijkstra-ckdtree.html`: Dijkstra and cKDTree road-routing article
 
+Current commercial services:
+
+- `services/index.html`: Enterprise GIS, PostGIS, WebGIS, and full-stack service offers
+
 ## Project structure
 
 - `index.html`: semantic page content and SEO metadata
@@ -30,10 +34,11 @@ Current technical insights:
 - `assets/images/profile.jpeg`: profile portrait
 - `assets/images/spatial-network.png`: generated geospatial project artwork
 - `assets/images/tamer-assaf-geospatial-systems.jpg`: compressed, descriptive web and social image
-- `assets/docs/Tamer-Ali-Assaf-CV.pdf`: downloadable curriculum vitae
+- `assets/docs/Tamer_Assaf_CV.pdf`: downloadable curriculum vitae
 - `favicon.svg` and `site.webmanifest`: browser and installable-site identity
 - `404.html`: custom not-found page with recovery navigation
 - `projects/`: detailed public-safe case studies
+- `services/`: outcome-led GIS and software engineering services
 - `robots.txt` and `sitemap.xml`: search-engine discovery
 
 No build step or runtime dependencies are required.
