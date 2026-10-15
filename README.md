@@ -34,6 +34,8 @@ Current commercial services:
 - `assets/images/profile.jpeg`: profile portrait
 - `assets/images/spatial-network.png`: generated geospatial project artwork
 - `assets/images/tamer-assaf-geospatial-systems.jpg`: compressed, descriptive web and social image
+- `open_graph/Geospatial_Engineer_Portfolio_Banner.png`: primary website sharing image
+- `thumbanel_projects/`: project artwork in PNG plus optimized WebP delivery copies
 - `assets/docs/Tamer_Assaf_CV.pdf`: downloadable curriculum vitae
 - `favicon.svg` and `site.webmanifest`: browser and installable-site identity
 - `404.html`: custom not-found page with recovery navigation
