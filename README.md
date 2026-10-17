@@ -17,6 +17,7 @@ Current case studies:
 Current technical insights:
 
 - `insights/index.html`: crawlable technical-writing hub
+- `insights/designing-real-time-vehicle-tracking-systems-with-gis.html`: published real-time vehicle-tracking architecture article (2026-10-17)
 - `insights/arcgis-attribute-rules-arcade.html`: practical ArcGIS Attribute Rules article
 - `insights/postgis-web-gis-spatial-applications.html`: PostGIS and Web GIS database design article
 - `insights/road-routing-dijkstra-ckdtree.html`: Dijkstra and cKDTree road-routing article
@@ -44,6 +45,17 @@ Current commercial services:
 - `robots.txt` and `sitemap.xml`: search-engine discovery
 
 No build step or runtime dependencies are required.
+
+## Insights editorial workflow
+
+- Markdown is the editorial source; reviewed static HTML is the public format.
+- Unpublished Markdown drafts stay outside the tracked GitHub Pages output.
+- The local `insight_files_md/` working directory is excluded through
+  `.git/info/exclude`, which changes no repository or deployment behavior.
+- Do not add `.nojekyll`, Jekyll configuration, or a build pipeline without
+  separately verifying the configured Pages publishing source.
+- Publication requires owner approval, an actual publication date, removal of
+  draft-only `noindex` metadata, and final link and metadata validation.
 
 ## Publish
 

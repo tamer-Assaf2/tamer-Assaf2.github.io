@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title description">
+  <title id="title">Reference architecture for a real-time vehicle tracking system</title>
+  <desc id="description">GPS devices send observations through an authenticated protocol adapter and validation layer. Accepted events are stored in history and processed into current state, spatial events, and real-time messages. Authorized dashboards recover from snapshots and receive incremental WebSocket updates. History supports reporting and analytics, while spatial events feed notifications and audit logs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#147d75" />
+    </marker>
+    <style>
+      .bg { fill: #f4f7f8; }
+      .lane { fill: #ffffff; stroke: #cbd8dc; stroke-width: 2; }
+      .box { fill: #ffffff; stroke: #96acb2; stroke-width: 2; }
+      .accent { fill: #e8f5f2; stroke: #147d75; stroke-width: 2.5; }
+      .label { fill: #1b292d; font: 700 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+      .detail { fill: #53676c; font: 15px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+      .lane-title { fill: #147d75; font: 800 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 1px; }
+      .flow { fill: none; stroke: #147d75; stroke-width: 3; marker-end: url(#arrow); }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #101719; }
+        .lane { fill: #151f22; stroke: #34484e; }
+        .box { fill: #192528; stroke: #526a70; }
+        .accent { fill: #173431; stroke: #56c7bb; }
+        .label { fill: #ecf4f4; }
+        .detail { fill: #afc0c3; }
+        .lane-title { fill: #72d8ce; }
+        .flow { stroke: #56c7bb; }
+        #arrow path { fill: #56c7bb; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="820" rx="28" />
+
+  <rect class="lane" x="35" y="35" width="1130" height="170" rx="20" />
+  <text class="lane-title" x="65" y="68">INGESTION</text>
+  <rect class="box" x="85" y="92" width="250" height="82" rx="14" />
+  <text class="label" x="210" y="125">GPS device or app</text>
+  <text class="detail" x="210" y="150">Recorded observations</text>
+  <rect class="box" x="475" y="92" width="250" height="82" rx="14" />
+  <text class="label" x="600" y="125">Protocol adapter</text>
+  <text class="detail" x="600" y="150">Authenticate and decode</text>
+  <rect class="accent" x="865" y="92" width="250" height="82" rx="14" />
+  <text class="label" x="990" y="125">Validate and normalize</text>
+  <text class="detail" x="990" y="150">Quality, identity, ordering</text>
+  <path class="flow" d="M335 133 H467" />
+  <path class="flow" d="M725 133 H857" />
+
+  <rect class="lane" x="35" y="235" width="1130" height="250" rx="20" />
+  <text class="lane-title" x="65" y="268">STATE AND SPATIAL PROCESSING</text>
+  <rect class="box" x="85" y="310" width="250" height="96" rx="14" />
+  <text class="label" x="210" y="345">Location event store</text>
+  <text class="detail" x="210" y="371">Append-only accepted history</text>
+  <rect class="accent" x="475" y="310" width="250" height="96" rx="14" />
+  <text class="label" x="600" y="345">State and spatial rules</text>
+  <text class="detail" x="600" y="371">Freshness, trip, geofence</text>
+  <rect class="box" x="865" y="274" width="250" height="82" rx="14" />
+  <text class="label" x="990" y="307">Current vehicle state</text>
+  <text class="detail" x="990" y="332">Latest accepted observation</text>
+  <rect class="box" x="865" y="382" width="250" height="82" rx="14" />
+  <text class="label" x="990" y="415">Spatial and trip events</text>
+  <text class="detail" x="990" y="440">Transitions, alerts, audit</text>
+  <path class="flow" d="M990 174 V227 H210 V302" />
+  <path class="flow" d="M990 174 V227 H600 V302" />
+  <path class="flow" d="M725 350 H805 V315 H857" />
+  <path class="flow" d="M725 366 H805 V423 H857" />
+
+  <rect class="lane" x="35" y="515" width="1130" height="270" rx="20" />
+  <text class="lane-title" x="65" y="548">DELIVERY, RECOVERY, AND ANALYSIS</text>
+  <rect class="box" x="85" y="590" width="250" height="82" rx="14" />
+  <text class="label" x="210" y="623">History and analytics</text>
+  <text class="detail" x="210" y="648">Reports, replay, evaluation</text>
+  <rect class="box" x="475" y="570" width="250" height="82" rx="14" />
+  <text class="label" x="600" y="603">Snapshot API</text>
+  <text class="detail" x="600" y="628">Authorized recovery state</text>
+  <rect class="box" x="475" y="682" width="250" height="82" rx="14" />
+  <text class="label" x="600" y="715">Realtime event bus</text>
+  <text class="detail" x="600" y="740">Ordered incremental events</text>
+  <rect class="accent" x="865" y="626" width="250" height="96" rx="14" />
+  <text class="label" x="990" y="661">Operations dashboard</text>
+  <text class="detail" x="990" y="687">Snapshot plus live updates</text>
+  <path class="flow" d="M210 406 V582" />
+  <path class="flow" d="M990 356 V520 H600 V562" />
+  <path class="flow" d="M990 464 V500 H790 V723 H733" />
+  <path class="flow" d="M725 611 H800 V658 H857" />
+  <path class="flow" d="M725 723 H800 V690 H857" />
+</svg>
